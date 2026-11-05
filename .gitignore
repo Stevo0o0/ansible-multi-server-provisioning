@@ -1,0 +1,21 @@
+# SSH private keys
+*.pem
+*.key
+
+# Ansible logs
+*.log
+
+# Ansible retry files
+*.retry
+
+# Environment variables
+.env
+.env.*
+
+# Temporary files
+*.swp
+*.swo
+
+# Python cache
+__pycache__/
+*.pyc

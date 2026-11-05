@@ -1,0 +1,25 @@
+---
+- name: Provisioning servers
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install ntp agent
+      ansible.builtin.package:
+        name: chrony
+        state: present
+
+    - name: Start service on centos
+      ansible.builtin.service:
+        name: chronyd
+        state: started
+        enabled: yes
+      when: ansible_facts['distribution'] == "CentOS"
+
+    - name: Start service on ubuntu
+      ansible.builtin.service:
+        name: chrony
+        state: started
+        enabled: yes
+      when: ansible_facts['distribution'] == "Ubuntu"
+
+
